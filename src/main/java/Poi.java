@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.URL;
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,5 +49,10 @@ public class Poi {
         }catch (Exception e) {
         }
         return null;
+    }
+
+    public static void run() throws Exception {
+        URL csvFile = Thread.currentThread().getContextClassLoader().getResource("test.xlsx");
+        Poi.printSqlPoi(new File(csvFile.toURI()));
     }
 }

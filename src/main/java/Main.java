@@ -20,7 +20,7 @@ import java.net.URL;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        URL csvFile = Thread.currentThread().getContextClassLoader().getResource("test.xlsx");
-        Poi.printSqlPoi(new File(csvFile.toURI()));
+        Csv.run();
+//        Poi.run();
     }
 }

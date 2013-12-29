@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,7 +34,7 @@ public class Csv {
 
     private static String toSqlLine(String line) {
         try {
-            String[] strings = line.split(",");
+            String[] strings = line.split(";");
             if (strings.length != 6) {
                 return null;
             }
@@ -54,5 +56,10 @@ public class Csv {
         }catch (Exception e) {
         }
         return null;
+    }
+
+    public static void run() throws Exception {
+        URL csvFile = Thread.currentThread().getContextClassLoader().getResource("test.csv");
+        Csv.printSql(new File(csvFile.toURI()));
     }
 }
